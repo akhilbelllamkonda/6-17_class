@@ -1,0 +1,36 @@
+---
+title: "Project #2"
+ 
+  
+---
+
+This is a Quarto website.
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+```{r}
+#| echo: false
+#| message: false
+library(tidycensus)
+library(tidyverse)
+library(ggplot2)
+library(sf)
+```
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+midwest |>
+  ggplot(aes(x = poptotal, y = state)) +
+  geom_point(color = "blue", alpha = 0.6) +
+  geom_smooth(method = "lm", color = "red", se = FALSE) +
+  labs(
+    title = "Population vs. Per Capita Income",
+    x = "Population",
+    y = "Per Capita Income"
+  ) +
+  theme_minimal()
+
+```
+
